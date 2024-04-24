@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-multitool
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ngmultitool
+  template:
+    metadata:
+      labels:
+        app: ngmultitool
+    spec:
+      containters:
+      - name: nginx
+        image: nginx:1.19
+      - name: multitool
+        image: wbitt/network-multitool
