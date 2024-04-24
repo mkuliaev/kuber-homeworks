@@ -6,11 +6,11 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      app: ngmultitool
+      app: ngmtool
   template:
     metadata:
       labels:
-        app: ngmultitool
+        app: ngmtool
     spec:
       containers:
         - name: multitool
