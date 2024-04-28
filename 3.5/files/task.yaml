@@ -49,9 +49,22 @@ metadata:
   name: auth-db
   namespace: data
 spec:
+#  type: ExternalName
+#  externalName: auth-db.web.svc.cluster.local
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
     app: auth-db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-db
+  namespace: web
+spec:
+  type: ExternalName
+  externalName: auth-db.data.svc.cluster.local
+  ports:
+  - port: 80
