@@ -1,0 +1,17 @@
+appVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busyboxmtools-pv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-pv
+  template:
+    metadata:
+      labels:
+        app: myapp-pv
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
